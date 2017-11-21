@@ -32,6 +32,10 @@ html,body{
   position: absolute;
   top:0;
   left:0;
+  transition: all 1s;
+}
+.zj_aside.now{
+  left:-180px;
 }
 .zj_aside .zj_logo a{
   display: block;
@@ -81,6 +85,11 @@ html,body{
   height: 100%;
   /*background-color: yellow;*/
   padding-left: 180px;
+  transition: all 1s;
+}
+.zj_main.now{
+  
+  padding-left: 0px;
 }
 .zj_main .zj_nav{
   width: 100%;
