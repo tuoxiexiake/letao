@@ -1,0 +1,29 @@
+[33mcommit 0b72529e425eba6bfce383d8fa7dfefa8f37f732[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: zj <“746989605@qq.com”>
+Date:   Tue Nov 21 20:01:46 2017 +0800
+
+    登录页添加进度条
+
+[33mcommit cc21b07cb7c6efd57da626fb287f8fb5f074ffdc[m
+Author: zj <“746989605@qq.com”>
+Date:   Tue Nov 21 19:17:44 2017 +0800
+
+    静态登录页面完成
+
+[33mcommit cb4c593b359756aa8c2f59fd1b5c631513509f62[m[33m ([m[1;31morigin/login[m[33m)[m
+Author: zj <“746989605@qq.com”>
+Date:   Tue Nov 21 13:40:26 2017 +0800
+
+    最基本的静态页面的完成
+
+[33mcommit d2b4d73bbade05cc3ee3144c9701c17b3f8e7632[m
+Author: zj <“746989605@qq.com”>
+Date:   Tue Nov 21 13:29:57 2017 +0800
+
+    最基本的静态登录页面基本完成
+
+[33mcommit 8233203482d1b66b6397ef6277a81d9fe40a6140[m
+Author: zj <“746989605@qq.com”>
+Date:   Tue Nov 21 10:34:14 2017 +0800
+
+    第一次提交的初始化信息
