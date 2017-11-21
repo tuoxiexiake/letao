@@ -2,10 +2,15 @@
 .body_bg{
   background-color: #222d32;
 }
-
+/*lv ha*/
+a:link,a:visited,a:hover,a:active{
+  text-decoration:none;
+  
+}
 .mt_150{
   margin-top: 150px;
 }
 .panel h4 {
   text-align: center;
 }
+
