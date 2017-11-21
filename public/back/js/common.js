@@ -3,16 +3,23 @@
 //禁用转环
 NProgress.configure({showSpinner:false});
 NProgress.start();
-
-
-// 延时器
 setTimeout(function () {
   NProgress.done();
 },500);
 
-if(location.href.indexOf("htmllogin.")===-1){
+$(document).ajaxStart(function(){
+  NProgress.start();
+});
+/*在ajax结束请求的时候  把进度条完成*/
+$(document).ajaxStop(function(){
+  setTimeout(function () {
+    NProgress.done();
+  },500);
+});
+//判断用户是否登录了没有就跳回登录页面
+if(location.href.indexOf("login.html")===-1){
   $.ajax({
-    type:'het',
+    type:'get',
     url:"/employee/checkRootLogin",
     success:function (data) {
       if(data.error===400){
@@ -36,19 +43,21 @@ $(".icon_menu").on("click",function () {
 $(".icon_logout").on("click",function () {
   $("#logoutModal").modal()
 })
+
+
 //给模态框注册点击确定按钮退出事件
 $(".btn-logout").on("click",function () {
   // alert(11);
-  //退出系统要发送ajax请求的
+  // 退出系统要发送ajax请求的
   $.ajax({
     type:"get",
     url:"/employee/employeeLogout",
     success:function (data) {
+      console.log(data);
       if(data.success){
         //退出成功
         location.href="login.html"
       }
     }
   })
-    
 })

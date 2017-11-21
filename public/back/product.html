@@ -2,10 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>乐淘管理系统-首页</title>
+  <title>乐淘管理系统-商品管理</title>
   <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css">
-  <link rel="stylesheet" href="lib/nprogress/nprogress.css">
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/index.css">
 </head>
@@ -21,7 +20,7 @@
   </div>
   <div class="zj_menu">
     <ul>
-      <li><a href="user.html" ><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
+      <li><a href="user.html"><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
       <li>
         <a href="#"><i class="glyphicon glyphicon-list"></i>分类管理</a>
         <div class="child" style=display:none>
@@ -29,7 +28,7 @@
           <a href="categorySecond.html">二级分类</a>
         </div>
       </li>
-      <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i>商品管理</a></li>
+      <li><a href="product.html"  class="now"><i class="glyphicon glyphicon-tags"></i>商品管理</a></li>
     </ul>
   </div>
 </aside>
@@ -39,21 +38,17 @@
     <a data-menu href="javascript:;"class="pull-left icon_menu"><span class="glyphicon glyphicon-align-justify"></span></a>
     <a data-logout href="javascript:;" class="pull-right icon_logout"><span class="glyphicon glyphicon-log-out"></span></a>
   </nav>
-  
   <!--路径导航(面包屑导航)-->
   <div class="container-fluid">
     <ol class="breadcrumb">
       <li><a href="#">管理系统</a></li>
-      <li class="active">首页</li>
+      <li class="active">商品管理</li>
     </ol>
     <div class="ad_content">
       <div class="picTable"></div>
       <div class="picTable"></div>
     </div>
   </div>
-  <!--内容区域-->
-  <div class="pic-left pull-left"></div>
-  <div class="pic-right pull-right"></div>
 </section>
 <!--模态框框-->
 <div class="modal fade" id="logoutModal">
@@ -81,7 +76,5 @@
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
-<script src="lib/echarts/echarts.min.js"></script>
 <script src="js/common.js"></script>
-<script src="js/index.js"></script>
 </html>
