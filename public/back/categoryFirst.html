@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css">
   <link rel="stylesheet" href="lib/nprogress/nprogress.css">
   <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <!--//侧边栏-->
@@ -46,12 +45,31 @@
       <li class="active ">分类管理</li>
       <li class="active ">一级分类</li>
     </ol>
-    <div class="ad_content">
-      <div class="picTable"></div>
-      <div class="picTable"></div>
+    <!--内容区域-->
+    <div class="zj_content">
+      <button class="btn btn-default mb_20 btn_add">分类管理</button>
+      <!--分类表格-->
+      <table class="table table-bordered table-hover">
+      <thead>
+      <tr class="text-center">
+        <td width="20%">序号</td>
+        <td width="80%">分类名称</td>
+      </tr>
+      </thead>
+        <tbody>
+        <!--挖个坑 模板引擎的使用-->
+        </tbody>
+    </table>
+      
     </div>
   </div>
+  <!--分页盒子-->
+  <div class="pull-right">
+    <ul id="paginator"></ul>
+  </div>
 </section>
+
+
 <!--模态框框-->
 <div class="modal fade" id="logoutModal">
   <div class="modal-dialog modal-sm">
@@ -71,12 +89,44 @@
     </div>
   </div>
 </div>
-
-  
+<!--添加的模态框-->
+<div class="modal fade" id="addModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times</span></button>
+        <h4 class="modal-title">添加分类</h4>
+      </div>
+      <div class="modal-body">
+        <form id="form">
+          <div class="form-group">
+            <input type="text" class="form-control" name="categoryName" placeholder="请输入一级分类的名称">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="submit"  form="form" class="btn btn-primary ">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--模板-->
+<script type="text/html" id="tpl">
+  {{each rows v i}}
+    <tr>
+      <td class="text-center">{{(page-1)*size +i+1}}</td>
+      <td class="text-center">{{v.categoryName}}</td>
+    </tr>
+  {{/each}}
+</script>
 </body>
-<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery/jquery.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
 <script src="js/common.js"></script>
+<script src="js/first.js"></script>
 </html>
