@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css">
   <link rel="stylesheet" href="lib/nprogress/nprogress.css">
   <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <!--//侧边栏-->
@@ -17,7 +16,7 @@
   </div>
   <div class="zj_user">
     <img src="images/timg.jpg" alt="">
-    <p class="text-center">超级管理员</p>
+    <p class="text-center">龟仙人</p>
   </div>
   <div class="zj_menu">
     <ul>
@@ -45,11 +44,27 @@
       <li><a href="#">管理系统</a></li>
       <li class="active">用户管理</li>
     </ol>
-    <div class="ad_content">
-      <div class="picTable"></div>
-      <div class="picTable"></div>
+    <!--表格部分&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+    <div class="zj_content">
+      <table class=" table table-bordered table-hover">
+        <thead>
+        <tr class="text-center">
+          <td width="10%">序号</td>
+          <td width="30%">用户名</td>
+          <td width="30%">手机号</td>
+          <td width="20%">状态</td>
+          <td width="10%">操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- 挖个坑&&&&&&&&&&&&-->
+        </tbody>
+      </table>
     </div>
+    <div class="pull-right"><ul id="paginator"></ul></div>
+    
   </div>
+  
 </section>
 <!--模态框框-->
 <div class="modal fade" id="logoutModal">
@@ -70,12 +85,56 @@
     </div>
   </div>
 </div>
-
-  
+<!--禁用 启用 模态框-->
+<div class="modal fade" id="userModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">温馨提示</h4>
+      </div>
+      <div class="modal-body">
+        <p class="text-danger"><i class="glyphicon glyphicon-info-sign"></i>您确定要执行此操作吗？</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary btn-adduse">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
+
+
+
+
+
+
+<!--表格要渲染的模板-->
+<script type="text/html" id="tpl">
+  {{each rows v i}}
+  <tr class="text-center">
+    <td style=vertical-align:middle>{{(page-1)*size+i+1}}</td>
+    <td style=vertical-align:middle>{{v.username}}</td>
+    <td style=vertical-align:middle>{{v.mobile}}</td>
+    <td style=vertical-align:middle>{{v.isDelete==1?"正常":"禁用"}}</td>
+    <td data-id="{{v.id}}" style=vertical-align:middle>
+      {{if v.isDelete === 1}}
+    <button class="btn btn-danger btn-sm" style=vertical-align:middle>禁用</button>
+      {{/if}}
+      {{if v.isDelete===0}}
+    <button class="btn btn-success btn-sm" style=vertical-align:middle>启用</button>
+      {{/if}}
+    </td>
+  </tr>
+  {{/each}}
+</script>
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<script src="js/user.js"></script>
 <script src="js/common.js"></script>
 </html>
