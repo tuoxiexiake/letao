@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css">
   <link rel="stylesheet" href="lib/nprogress/nprogress.css">
   <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <!--//侧边栏-->
@@ -46,12 +45,31 @@
       <li class="active">分类管理</li>
       <li class="active">二级分类</li>
     </ol>
-    <div class="ad_content">
-      <div class="picTable"></div>
-      <div class="picTable"></div>
+    <div class="zj_content">
+      <button class="btn btn-default mb_20 btn_add">添加分类</button>
+      <table class="table table-bordered table-hover">
+        <thead>
+        <tr class="text-center">
+          <td>序号</td>
+          <td>一级名称</td>
+          <td>二级名称</td>
+          <td>二级分类LOGO</td>
+        </tr>
+        </thead>
+        <tbody>
+        <!--继续挖坑****************************-->
+        </tbody>
+      </table>
     </div>
   </div>
+  <!--分页盒子-->
+  <div class="pull-right">
+    <ul id="paginator"></ul>
+  </div>
 </section>
+
+
+
 <!--模态框框-->
 <div class="modal fade" id="logoutModal">
   <div class="modal-dialog modal-sm">
@@ -71,12 +89,76 @@
     </div>
   </div>
 </div>
-
-  
+<!--二级添加模态框-->
+<div class="modal fade" id="addModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times</span></button>
+        <h4 class="modal-title">添加分类</h4>
+      </div>
+      <div class="modal-body">
+        <form id="form">
+          <div class="form-group">
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                <span class="dropdown-text">请选择一级分类</span>
+                <span class="caret"></span>
+              </button>
+              <input type="hidden" name="categoryId">
+              <ul class="dropdown-menu">
+                <!--挖个坑+++++++++++++-->
+              </ul>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="brandName" placeholder="请输入二级分类的名称">
+          </div>
+          <div class="form-group">
+            <div class="fileupload_box ">
+              <button class="btn btn-default">上传图片</button>
+              <input type="file" class="btn btn-default" id="fileupload" name="pic1" data-url="/category/addSecondCategoryPic">
+            </div>
+          </div>
+          <div class="form-group img_box mt_60">
+            <img src="images/none.png" width="100" height="100" alt="">
+            <input type="hidden" name="brandLogo">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="submit"  form="form" class="btn btn-primary ">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
-<script src="lib/jquery/jquery.min.js"></script>
+<!--模板引擎-->
+<script type="text/html" id="tpl">
+  {{each rows v i}}
+  <tr class="text-center">
+    <td style=vertical-align:middle>{{(page-1)*size+i+1}}</td>
+    <td style=vertical-align:middle>{{v.categoryName}}</td>
+    <td style=vertical-align:middle>{{v.brandName}}</td>
+    <td style=vertical-align:middle><img src="{{v.brandLogo?v.brandLogo:'images/none.png'}}" width="50" height="50" alt=""></td>
+  </tr>
+  {{/each}}
+</script>
+<script type="text/html" id="tpl2">
+{{each rows v i}}
+<li ><a data-id="{{v.id}}" href="javascript:;">{{v.categoryName}}</a></li>
+  {{/each}}
+</script>
+
+<script src="lib/jquery/jquery.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<script src="lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="lib/jquery-fileupload/jquery.fileupload.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
 <script src="js/common.js"></script>
+<script src="js/second.js"></script>
 </html>
